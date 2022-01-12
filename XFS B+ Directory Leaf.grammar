@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="XFS Inode" start="id:424" author="Hal Pomeranz" email="hal@deer-run.com" uti="public.data">
+        <description>Grammar for XFS v5 inode</description>
+        <structure name="XFS B+Tree Dir Leaf" id="424" length="0" repeatmax="-1" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <string name="MagicNumber" id="425" strokecolor="FF40FF" fillcolor="FF40FF" type="fixed-length" length="4"/>
+            <number name="DepthInTree" id="426" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2"/>
+            <number name="NumExtents" id="427" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="2"/>
+            <number name="LeftSibPointer" id="428" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8" signed="yes"/>
+            <number name="RightSibPointer" id="429" strokecolor="00F900" fillcolor="00F900" type="integer" length="8" signed="yes"/>
+            <number name="SectorOffset" id="430" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="8"/>
+            <number name="LSNLastUpdate" id="431" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8"/>
+            <binary name="UUID" id="432" strokecolor="FF40FF" fillcolor="FF40FF" length="16"/>
+            <number name="Inode" id="433" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8"/>
+            <binary name="CRC32" id="434" strokecolor="FF9200" fillcolor="FF9200" length="4"/>
+            <binary name="Padding" id="435" strokecolor="AA7941" fillcolor="AA7941" length="4"/>
+            <structure name="Extent List" id="436" length="16" repeatmax="NumExtents">
+                <binary name="AllocNotWritten" id="437" strokecolor="FF9200" fillcolor="FF9200" length="1" lengthunit="bit"/>
+                <number name="LogicalOffset" id="438" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="54" lengthunit="bit"/>
+                <number name="StartBlock" id="439" strokecolor="00F900" fillcolor="00F900" type="integer" length="52" lengthunit="bit"/>
+                <number name="BlockCount" id="440" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="21" lengthunit="bit"/>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

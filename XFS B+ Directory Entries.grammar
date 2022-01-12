@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="New grammar" start="id:39" author="hrpom">
+        <structure name="B+Tree Directory Entries" id="39" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <string name="Magic number" id="41" fillcolor="FF00FF" type="fixed-length" length="4" encoding="ISO_8859-1:1987"/>
+            <number name="CRC32 Checksum" id="42" fillcolor="FFAA00" type="integer" length="4" display="hex"/>
+            <number name="Sector offset of this block" id="43" fillcolor="FFFF00" type="integer" length="8"/>
+            <number name="LSN of last update" id="44" fillcolor="00FFFF" type="integer" length="8"/>
+            <binary name="UUID" id="45" fillcolor="00FF00" length="16"/>
+            <number name="Parent inode" id="46" fillcolor="FF00FF" type="integer" length="8"/>
+            <structure name="Array Element" id="47" length="4" repeatmax="3">
+                <number name="Offset" id="49" fillcolor="FFAA00" type="integer" length="2"/>
+                <number name="Size" id="50" fillcolor="FFFF00" type="integer" length="2"/>
+            </structure>
+            <binary name="Padding for alignment" id="51" fillcolor="00FFFF" length="4"/>
+            <structure name="Directory Entry-1" id="52" length="16">
+                <number name="Absolute inode number" id="54" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="55" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="56" fillcolor="FFFF00" type="fixed-length" length="1" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="57" fillcolor="00FFFF" type="integer" length="1"/>
+                <binary name="Padding for alignment" id="58" fillcolor="FFAAFF" length="3"/>
+                <number name="Starting offset" id="75" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+            <structure name="Directory Entry-2" id="60" length="16">
+                <number name="Absolute inode number" id="62" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="63" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="64" fillcolor="FFFF00" type="fixed-length" length="2" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="65" fillcolor="00FFFF" type="integer" length="1"/>
+                <binary name="Padding for alignment" id="76" fillcolor="FFAAFF" length="2"/>
+                <number name="Starting offset" id="77" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+            <structure name="Directory Entry-3" id="67" length="32">
+                <number name="Absolute inode number" id="69" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="70" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="71" fillcolor="FFFF00" type="fixed-length" length="14" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="72" fillcolor="00FFFF" type="integer" length="1"/>
+                <binary name="Padding for alignment" id="73" fillcolor="FFAAFF" length="6"/>
+                <number name="Starting offset" id="78" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+            <structure name="Directory Entry-4" id="79" length="24">
+                <number name="Absolute inode number" id="81" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="82" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="83" fillcolor="FFFF00" type="fixed-length" length="12" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="84" fillcolor="00FFFF" type="integer" length="1"/>
+                <number name="Starting offset" id="85" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+            <structure name="Directory entry-5" id="86" length="32">
+                <number name="Absolute inode number" id="88" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="89" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="90" fillcolor="FFFF00" type="fixed-length" length="14" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="91" fillcolor="00FFFF" type="integer" length="1"/>
+                <binary name="Padding for alignment" id="92" fillcolor="FFAAFF" length="6"/>
+                <number name="Starting offset" id="93" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+            <structure name="Directory Entry-6" id="94" length="24">
+                <number name="Absolute inode number" id="96" fillcolor="FF00FF" type="integer" length="8"/>
+                <number name="File name length" id="97" fillcolor="FFAA00" type="integer" length="1"/>
+                <string name="File name" id="98" fillcolor="FFFF00" type="fixed-length" length="12" encoding="ISO_8859-1:1987"/>
+                <number name="File type" id="99" fillcolor="00FFFF" type="integer" length="1"/>
+                <number name="Starting offset" id="100" fillcolor="00FF00" type="integer" length="2"/>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

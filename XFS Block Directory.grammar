@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="XFS Directory Block" start="id:2" author="Hal Pomeranz" email="hal@deer-run.com">
+        <description>Grammar for XFS directory blocks</description>
+        <structure name="XFS Directory Block" id="2" length="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <string name="MagicNumber" id="3" strokecolor="00F900" fillcolor="00F900" type="fixed-length" length="4"/>
+            <binary name="CRC32Checksum" id="4" fillcolor="FF9200" length="4"/>
+            <number name="BlockNumber" id="5" fillcolor="FEFB00" type="integer" length="8"/>
+            <number name="LSNLastUpdate" id="6" fillcolor="00FCFF" type="integer" length="8"/>
+            <binary name="UUID" id="7" fillcolor="FF40FF" length="16"/>
+            <number name="InodeNumber" id="8" fillcolor="00F900" type="integer" length="8"/>
+            <structure name="FreeSpacePtr" id="9" repeatmax="3">
+                <number name="Offset" id="10" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2"/>
+                <number name="Length" id="11" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="2"/>
+            </structure>
+            <binary name="Padding" id="24" strokecolor="00FCFF" fillcolor="00FCFF" length="4"/>
+            <structure name="DirectoryEntry" id="25" length="0" repeatmax="52">
+                <number name="Inode" id="27" strokecolor="00F900" fillcolor="00F900" type="integer" length="8"/>
+                <number name="FileNameLen" id="28" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="1"/>
+                <string name="FileName" id="29" strokecolor="FF40FF" fillcolor="FF40FF" type="fixed-length" length="FileNameLen"/>
+                <number name="FileType" id="30" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="1"/>
+                <binary name="Padding" id="31" strokecolor="AA7941" fillcolor="AA7941" length="ceil((FileNameLen+12)/8)*8-(FileNameLen+12)"/>
+                <number name="EntryOffset" id="32" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2"/>
+            </structure>
+            <binary name="SlackSpace" id="33" length="2376"/>
+            <structure name="Hash Lookup" id="15" length="0" repeatmax="52">
+                <binary name="Hash" id="16" strokecolor="00F900" fillcolor="00F900" length="4"/>
+                <number name="Offset" id="17" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4"/>
+            </structure>
+            <structure name="Tail Record" id="19" length="8">
+                <number name="NumEntries" id="20" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4"/>
+                <number name="FreeEntries" id="21" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="4"/>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

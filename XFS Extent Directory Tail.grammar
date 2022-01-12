@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="XFS Inode" start="id:443" author="Hal Pomeranz" email="hal@deer-run.com" uti="public.data">
+        <description>Grammar for XFS v5 inode</description>
+        <structure name="XFS Extent Dir Tail" id="443" length="0" repeatmax="-1" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="ForwardLink" id="462" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4"/>
+            <number name="BackwardLink" id="463" strokecolor="00F900" fillcolor="00F900" type="integer" length="4"/>
+            <string name="MagicNumber" id="444" strokecolor="FF40FF" fillcolor="FF40FF" type="fixed-length" length="2"/>
+            <binary name="Padding1" id="454" strokecolor="AA7941" fillcolor="AA7941" length="2"/>
+            <binary name="CRC32" id="453" strokecolor="FF9200" fillcolor="FF9200" length="4"/>
+            <number name="SectorOffset" id="449" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8"/>
+            <number name="LSNLastUpdate" id="450" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8"/>
+            <binary name="UUID" id="451" strokecolor="FF40FF" fillcolor="FF40FF" length="16"/>
+            <number name="Inode" id="452" strokecolor="00F900" fillcolor="00F900" type="integer" length="8"/>
+            <number name="NumEntries" id="466" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2"/>
+            <number name="NumUnused" id="467" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2"/>
+            <binary name="Padding2" id="468" strokecolor="AA7941" fillcolor="AA7941" length="4"/>
+            <structure name="HashEntry" id="469" repeatmax="NumEntries">
+                <binary name="HashVal" id="471" strokecolor="00FCFF" fillcolor="00FCFF" length="4"/>
+                <number name="Offset" id="472" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4"/>
+            </structure>
+            <binary name="&lt;Binary Fill Bytes&gt;" id="473" unused="yes" length="1672"/>
+            <structure name="BestElt" id="475" repeatmax="2">
+                <number name="BestOffset" id="477" fillcolor="FF9200" type="integer" length="2"/>
+            </structure>
+            <number name="NumBestElts" id="474" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4"/>
+        </structure>
+    </grammar>
+</ufwb>

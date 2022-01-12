@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="XFS Inode" start="id:230" author="Hal Pomeranz" email="hal@deer-run.com" uti="public.data">
+        <description>Grammar for XFS v5 inode</description>
+        <structure name="XFS v5 Inode" id="230" length="512" repeatmax="-1" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <structure name="Inode Core" id="231" length="176">
+                <string name="MagicNumber" id="232" strokecolor="FF40FF" fillcolor="FF40FF" type="fixed-length" length="2" encoding="ISO_8859-1:1987"/>
+                <binary name="TypeAndMode" id="233" strokecolor="FF9200" fillcolor="FF9200" length="2"/>
+                <number name="InodeVers" id="234" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="1"/>
+                <number name="DataType" id="235" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="1"/>
+                <number name="V1NumLinks" id="236" strokecolor="00F900" fillcolor="00F900" type="integer" length="2"/>
+                <number name="OwnerUID" id="237" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4"/>
+                <number name="OwnerGID" id="238" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="4"/>
+                <number name="NumLinks" id="239" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4"/>
+                <number name="ProjIDLow" id="240" strokecolor="00F900" fillcolor="00F900" type="integer" length="2"/>
+                <number name="ProjIDHigh" id="241" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="2"/>
+                <binary name="ResFutUse" id="242" strokecolor="FEFB00" fillcolor="FEFB00" length="6"/>
+                <number name="IncOnFlush" id="243" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2"/>
+                <number name="AtimeSec" id="244" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="4"/>
+                <number name="AtimeNsec" id="245" strokecolor="932092" fillcolor="FF40FF" type="integer" length="4"/>
+                <number name="MtimeSec" id="246" strokecolor="00F900" fillcolor="00F900" type="integer" length="4"/>
+                <number name="MtimeNsec" id="247" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4"/>
+                <number name="CtimeSec" id="248" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4"/>
+                <number name="CtimeNsec" id="249" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4"/>
+                <number name="FileSize" id="250" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="8"/>
+                <number name="DataBlocks" id="251" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="8"/>
+                <number name="ExtSizeHint" id="252" strokecolor="00F900" fillcolor="00F900" type="integer" length="4"/>
+                <number name="NumExt" id="253" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4"/>
+                <number name="NumAttrExt" id="254" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="2"/>
+                <number name="AttrOffset" id="255" strokecolor="00F900" fillcolor="00F900" type="integer" length="1"/>
+                <number name="AttrType" id="256" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="1"/>
+                <binary name="DMAPIEvtMask" id="257" strokecolor="FEFB00" fillcolor="FEFB00" length="4"/>
+                <number name="DMAPIState" id="258" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2"/>
+                <binary name="Flags" id="259" strokecolor="00FCFF" fillcolor="00FCFF" length="2"/>
+                <number name="GenerationNum" id="260" strokecolor="00F900" fillcolor="00F900" type="integer" length="4"/>
+                <number name="NextUnlinkedPtr" id="261" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4"/>
+                <binary name="CRC32" id="262" strokecolor="FF9200" fillcolor="FF9200" length="4"/>
+                <number name="NumChangesAttr" id="263" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8"/>
+                <number name="LastUpdLSN" id="264" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8"/>
+                <binary name="ExtendedFlags" id="265" strokecolor="00F900" fillcolor="00F900" length="8"/>
+                <number name="COWExtSizeHint" id="266" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4"/>
+                <binary name="ResFutUse-1" id="267" strokecolor="FF9200" fillcolor="FF9200" length="12"/>
+                <number name="BtimeSec" id="268" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4"/>
+                <number name="BtimeNsec" id="269" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4"/>
+                <number name="InodeNum" id="270" strokecolor="00F900" fillcolor="00F900" type="integer" length="8"/>
+                <binary name="UUID" id="271" strokecolor="FF40FF" fillcolor="FF40FF" length="16"/>
+            </structure>
+            <structure name="Data" id="273" length="AttrOffset*8">
+                <structure name="Short Form Directory" id="274" disabled="yes">
+                    <number name="NumEntries" id="275" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="1"/>
+                    <number name="Num64bitInode" id="276" strokecolor="00F900" fillcolor="00F900" type="integer" length="1"/>
+                    <number name="ParentInode" id="277" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4+above(Num64bitInode,0)*4"/>
+                    <structure name="DirEnt" id="278" length="0" repeatmax="NumEntries">
+                        <number name="FNameLen" id="279" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="1"/>
+                        <number name="Iterator" id="280" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2"/>
+                        <string name="FileName" id="281" strokecolor="00FCFF" fillcolor="00FCFF" type="fixed-length" length="FNameLen" encoding="ISO_8859-1:1987"/>
+                        <number name="FileType" id="282" strokecolor="00F900" fillcolor="00F900" type="integer" length="1"/>
+                        <number name="InodeNum" id="283" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4+above(Num64bitInode,0)*4"/>
+                    </structure>
+                </structure>
+                <structure name="Extent List" id="286" length="16" disabled="yes" repeatmax="NumExt">
+                    <binary name="AllocNotWritten" id="287" strokecolor="FF9200" fillcolor="FF9200" length="1" lengthunit="bit"/>
+                    <number name="LogicalOffset" id="288" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="54" lengthunit="bit"/>
+                    <number name="StartBlock" id="289" strokecolor="00F900" fillcolor="00F900" type="integer" length="52" lengthunit="bit"/>
+                    <number name="BlockCount" id="290" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="21" lengthunit="bit"/>
+                </structure>
+                <structure name="B+Tree" id="292" length="0">
+                    <number name="LevelInTree" id="293" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="2"/>
+                    <number name="NumEnt" id="294" strokecolor="00F900" fillcolor="00F900" type="integer" length="2"/>
+                    <binary name="Padding" id="295" strokecolor="FEFB00" fillcolor="FEFB00" length="4"/>
+                    <structure name="Offset Array" id="296" length="(AttrOffset*8-8)/2">
+                        <structure name="ArrayElt" id="297" length="4" repeat="id:294" repeatmax="-1">
+                            <number name="LogicalOffset" id="298" fillcolor="FF40FF" type="integer" length="4"/>
+                        </structure>
+                    </structure>
+                    <structure name="Block Array" id="301" length="(AttrOffset*8-8)/2">
+                        <structure name="ArrayElt" id="302" length="4" repeat="id:294" repeatmax="-1">
+                            <number name="BlockNumber" id="303" fillcolor="FF9200" type="integer" length="4"/>
+                        </structure>
+                    </structure>
+                </structure>
+            </structure>
+            <structure name="LocalAttr" id="308">
+                <number name="AttrLen" id="309" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2"/>
+                <number name="NumAttr" id="310" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="1"/>
+                <binary name="Padding" id="311" strokecolor="FEFB00" fillcolor="FEFB00" length="1"/>
+                <structure name="Extended Attribute" id="312" repeat="id:310">
+                    <number name="NameLen" id="313" strokecolor="00F900" fillcolor="00F900" type="integer" length="1"/>
+                    <number name="ValueLen" id="314" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="1"/>
+                    <binary name="Flags" id="315" strokecolor="FF9200" fillcolor="FF9200" length="1"/>
+                    <string name="AttrName" id="316" strokecolor="00F900" fillcolor="00F900" type="fixed-length" length="NameLen" encoding="ISO_8859-1:1987"/>
+                    <string name="AttrValue" id="317" strokecolor="00FCFF" fillcolor="00FCFF" type="fixed-length" length="ValueLen" encoding="ISO_8859-1:1987"/>
+                </structure>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

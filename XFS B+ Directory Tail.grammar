@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="New grammar" start="id:37" author="hrpom">
+        <structure name="B+Tree Tail" id="37" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <string name="Magic Number" id="38" strokecolor="FFFFFF" fillcolor="FF00FF" type="fixed-length" length="4"/>
+            <number name="CRC32 Checksum" id="39" strokecolor="FFFFFF" fillcolor="FFAA00" type="integer" length="4" display="hex" minval="0x0"/>
+            <number name="Sector Offset" id="40" strokecolor="FFFFFF" fillcolor="FFFF00" type="integer" length="8" maxval="0"/>
+            <number name="Last LSN Update" id="41" strokecolor="FFFFFF" fillcolor="55FFFF" type="integer" length="8" display="hex"/>
+            <binary name="UUID" id="46" strokecolor="FFFFFF" fillcolor="00FF00" length="16"/>
+            <number name="Parent Inode" id="42" strokecolor="FFFFFF" fillcolor="FFAA00" type="integer" length="8" display="hex"/>
+            <number name="Starting Block Offset" id="43" strokecolor="FFFFFF" fillcolor="FF00FF" type="integer" length="4"/>
+            <number name="Array Size" id="47" strokecolor="FFFFFF" fillcolor="55FFFF" type="integer" length="4"/>
+            <number name="Array Entries Used" id="48" strokecolor="FFFFFF" fillcolor="FFFF00" type="integer" length="4"/>
+            <binary name="Padding For Alignment" id="49" strokecolor="FFFFFF" fillcolor="00FF00" length="4"/>
+            <number name="Array" id="69" fillcolor="FFAA00" repeatmax="35" type="integer" length="2" minval="0"/>
+        </structure>
+    </grammar>
+</ufwb>

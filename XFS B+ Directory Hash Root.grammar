@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="New grammar" start="id:3" author="hrpom">
+        <structure name="B+ Tree Hash Lookup Root" id="3" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <number name="Forward pointer" id="5" fillcolor="FF00FF" type="integer" length="4"/>
+            <number name="Backward Pointer" id="6" fillcolor="FFAA00" type="integer" length="4"/>
+            <number name="Magic number" id="7" fillcolor="FFFF00" type="integer" length="2" display="hex"/>
+            <number name="Padding for alignment" id="8" fillcolor="00FFFF" type="integer" length="2" display="hex"/>
+            <number name="CRC32 checksum" id="9" fillcolor="00FF00" type="integer" length="4" display="hex"/>
+            <number name="Sector offset" id="10" fillcolor="FFFF00" type="integer" length="8"/>
+            <number name="LSN of last update" id="11" fillcolor="FF00FF" type="integer" length="8" display="hex"/>
+            <binary name="UUID" id="12" fillcolor="00FFFF" length="16"/>
+            <number name="Parent inode" id="13" fillcolor="00FF00" type="integer" length="8"/>
+            <number name="Number of array entries" id="14" fillcolor="FFAA00" type="integer" length="2"/>
+            <number name="Level in tree" id="15" fillcolor="FFFF00" type="integer" length="2"/>
+            <binary name="Padding for alignment-1" id="16" fillcolor="FF00FF" length="4"/>
+            <structure name="Array element" id="17" length="8" repeatmax="14">
+                <number name="Hash value" id="19" fillcolor="00FFFF" type="integer" length="4" display="hex"/>
+                <number name="Logical block offset" id="20" fillcolor="00FF00" type="integer" length="4" minval="0"/>
+            </structure>
+        </structure>
+    </grammar>
+</ufwb>

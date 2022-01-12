@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ufwb version="1.17">
+    <grammar name="XFS Superblock" start="id:94" author="Hal Pomeranz" email="hal@deer-run.com" uti="public.data" complete="yes">
+        <description>Grammar for XFS v5 superblock</description>
+        <structure name="XFS Superblock" id="94" length="0" encoding="ISO_8859-1:1987" endian="big" signed="no">
+            <string name="MagicNumber" id="95" strokecolor="FF40FF" fillcolor="FF40FF" type="fixed-length" length="4" encoding="ISO_8859-1:1987">
+                <description>Magic number, should be “XFSB”</description>
+            </string>
+            <number name="BlockSize" id="96" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="4">
+                <description>Block size in bytes</description>
+            </number>
+            <number name="FSBlocks" id="97" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8">
+                <description>Number of blocks in file system</description>
+            </number>
+            <number name="RTBlocks" id="98" strokecolor="00F900" fillcolor="00F900" type="integer" length="8">
+                <description>Number of blocks in real-time device</description>
+            </number>
+            <number name="RTExtents" id="99" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8">
+                <description>Number of extents in real-time device</description>
+            </number>
+            <binary name="UUID" id="100" strokecolor="FF40FF" fillcolor="FF40FF" length="16">
+                <description>File system UUID</description>
+            </binary>
+            <number name="JournalFirstBlock" id="101" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="8">
+                <description>Block number of first journal block</description>
+            </number>
+            <number name="RootInode" id="102" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8">
+                <description>Root inode number</description>
+            </number>
+            <number name="RTExtBitmapInode" id="103" strokecolor="00F900" fillcolor="00F900" type="integer" length="8">
+                <description>Inode number of real-time extents bitmap</description>
+            </number>
+            <number name="RTBitmapSummInode" id="104" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8">
+                <description>Inode of real-time extents summary</description>
+            </number>
+            <number name="RTExtSize" id="105" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4">
+                <description>Real-time extent size in blocks</description>
+            </number>
+            <number name="AGSize" id="106" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="4">
+                <description>Allocation Group size in blocks</description>
+            </number>
+            <number name="NumAGs" id="107" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4">
+                <description>Number of allocation groups</description>
+            </number>
+            <number name="RTBitmapBlks" id="108" strokecolor="00F900" fillcolor="00F900" type="integer" length="4">
+                <description>Number of blocks in real-time bitmap</description>
+            </number>
+            <number name="JournalBlks" id="109" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4">
+                <description>Number of journal blocks</description>
+            </number>
+            <binary name="FSFlagsAndVers" id="110" strokecolor="FF40FF" fillcolor="FF40FF" length="2">
+                <description>File system flags and version number. Version number is low nibble.</description>
+            </binary>
+            <number name="SectorSize" id="111" strokecolor="00F900" fillcolor="00F900" type="integer" length="2">
+                <description>Sector size in bytes</description>
+            </number>
+            <number name="InodeSize" id="112" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="2">
+                <description>Inode size in bytes</description>
+            </number>
+            <number name="InodesPerBlk" id="113" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2">
+                <description>Inodes per block (block size / inode size)</description>
+            </number>
+            <string name="FSName" id="114" strokecolor="00FCFF" fillcolor="00FCFF" type="fixed-length" length="12" encoding="ISO_8859-1:1987">
+                <description>File system label</description>
+            </string>
+            <number name="Log2BlkSize" id="115" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="1">
+                <description>Log2 of block size</description>
+            </number>
+            <number name="Log2SectSize" id="116" strokecolor="00F900" fillcolor="00F900" type="integer" length="1">
+                <description>Log2 of sector size</description>
+            </number>
+            <number name="Log2InodeSize" id="117" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="1">
+                <description>Log2 of inode size</description>
+            </number>
+            <number name="Log2InodePerBlk" id="118" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="1">
+                <description>Log2 of inodes/blk</description>
+            </number>
+            <number name="Log2AGSize" id="119" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="1">
+                <description>Log2 of AG size in blocks, rounded up</description>
+            </number>
+            <number name="Log2RTExt" id="120" strokecolor="00F900" fillcolor="00F900" type="integer" length="1">
+                <description>Log2 of number of real-time extents</description>
+            </number>
+            <number name="FSBeingCreated" id="121" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="1">
+                <description>Only set if file system is currently being initialized</description>
+            </number>
+            <number name="MaxInodePct" id="122" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="1">
+                <description>Max percentage of file system blocks that may contain inodes</description>
+            </number>
+            <number name="NumAllocInode" id="123" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="8">
+                <description>Number of allocated inodes</description>
+            </number>
+            <number name="NumFreeInode" id="124" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8">
+                <description>Number of free inodes</description>
+            </number>
+            <number name="NumFreeBlk" id="125" strokecolor="00F900" fillcolor="00F900" type="integer" length="8">
+                <description>Number of free blocks</description>
+            </number>
+            <number name="NumFreeRTExt" id="126" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="8">
+                <description>Number of free real-time extents</description>
+            </number>
+            <number name="UserQuotaInode" id="127" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="8">
+                <description>Inode for user quota information</description>
+            </number>
+            <number name="GrpQoutaInode" id="128" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="8">
+                <description>Inode for group quota information</description>
+            </number>
+            <binary name="QuotaFlags" id="129" strokecolor="00FCFF" fillcolor="00FCFF" length="2">
+                <description>Quota flags</description>
+            </binary>
+            <binary name="MiscFlags" id="130" strokecolor="FF9200" fillcolor="FF9200" length="1">
+                <description>Miscellaneous flags</description>
+            </binary>
+            <binary name="Reserved" id="131" strokecolor="00F900" fillcolor="00F900" length="1">
+                <description>Reserved for future use</description>
+            </binary>
+            <number name="InodeAlignment" id="132" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="4">
+                <description>Required inode alignment, in blocks</description>
+            </number>
+            <number name="RAIDUnit" id="133" strokecolor="FEFB00" fillcolor="FEFB00" type="integer" length="4">
+                <description>RAID unit, in blocks</description>
+            </number>
+            <number name="RAIDStripe" id="134" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4">
+                <description>RAID stripe, in blocks</description>
+            </number>
+            <number name="Log2BlkAllocGran" id="135" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="1">
+                <description>log2 required directory block allocation granularity</description>
+            </number>
+            <number name="Log2ExtJrnlSecSize" id="136" strokecolor="00F900" fillcolor="00F900" type="integer" length="1">
+                <description>log2 of external journal size</description>
+            </number>
+            <number name="ExtJrnlSectSize" id="137" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="2">
+                <description>Sector size of external journal</description>
+            </number>
+            <number name="ExtJrnlRAIDUnit" id="138" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="4">
+                <description>RAID unit size for external journal</description>
+            </number>
+            <binary name="AddtlFlags" id="139" strokecolor="FF9200" fillcolor="FF9200" length="4">
+                <description>Additional flags</description>
+            </binary>
+            <binary name="AddtlFlagsRepeat" id="140" strokecolor="FEFB00" fillcolor="FEFB00" length="4">
+                <description>Repeat of additional flags for alignment purposes</description>
+            </binary>
+            <binary name="RWFeatFlags" id="141" strokecolor="00FCFF" fillcolor="00FCFF" length="4">
+                <description>Read-write feature flags, currently not used</description>
+            </binary>
+            <binary name="ROFeatFlags" id="142" strokecolor="FF9200" fillcolor="FF9200" length="4">
+                <description>Read-only feature flags</description>
+            </binary>
+            <binary name="RWIncompatFlags" id="143" strokecolor="FF40FF" fillcolor="FF40FF" length="4">
+                <description>Read-write incompatibility flags</description>
+            </binary>
+            <binary name="RWLogIncompatFlags" id="144" strokecolor="00F900" fillcolor="00F900" length="4">
+                <description>Read-write log incompatibility flags, currently not used</description>
+            </binary>
+            <binary name="CRC32 Checksum" id="145" strokecolor="FEFB00" fillcolor="FEFB00" length="4">
+                <description>Superblock CRC32 checksum for validation</description>
+            </binary>
+            <number name="SparseInodeAlign" id="146" strokecolor="00F900" fillcolor="00F900" type="integer" length="4">
+                <description>Sparse inode alignment</description>
+            </number>
+            <number name="ProjQuotaInode" id="147" strokecolor="00FCFF" fillcolor="00FCFF" type="integer" length="8">
+                <description>Project quota inode</description>
+            </number>
+            <number name="LastUpdateLSN" id="148" strokecolor="FF40FF" fillcolor="FF40FF" type="integer" length="8">
+                <description>Log sequence number of last superblock update</description>
+            </number>
+            <binary name="IncompatMetaUUID" id="149" strokecolor="FEFB00" fillcolor="FEFB00" length="16">
+                <description>UUID to use if INCOMPAT_META_UUID is set</description>
+            </binary>
+            <number name="RevMapInode" id="150" strokecolor="FF9200" fillcolor="FF9200" type="integer" length="8">
+                <description>Inode of reverse mapping tree if INCOMPAT_META_RMAPBT option is set</description>
+            </number>
+            <binary name="ReservedFutUse" id="151" strokecolor="FEFFFF" fillcolor="FEFFFF" length="240"/>
+        </structure>
+    </grammar>
+</ufwb>
